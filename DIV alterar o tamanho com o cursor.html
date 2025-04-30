@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destacar Div</title>
+    <style>
+        .divNormal {
+            width: 200px;
+            height: 100px;
+            background-color: #4CAF50;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .divNormal:hover {
+            background-color: #2E7D32; /* Cor mais escura no hover */
+            transform: scale(1.1); /* Aumenta ligeiramente o tamanho */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="divNormal">Passe o mouse aqui!</div>
+</body>
+</html>

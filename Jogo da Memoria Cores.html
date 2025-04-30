@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jogo da Memória</title>
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+            grid-gap: 10px;
+            margin: 20px auto;
+            width: 450px;
+        }
+        .card {
+            width: 100px;
+            height: 100px;
+            background: lightblue;
+            display: flex;
+            border-radius: 50px;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .card.flipped {
+            background: rgb(224, 203, 106);
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Jogo da Memória</h1>
+    <div class="grid" id="grid"></div>
+
+    <script>
+        const cards = ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H'];
+        const grid = document.getElementById('grid');
+        let flippedCards = [];
+        let matchedPairs = 0;
+
+        function createBoard() {
+            cards.sort(() => 0.5 - Math.random());
+            cards.forEach(card => {
+                const cardElement = document.createElement('div');
+                cardElement.classList.add('card');
+                cardElement.dataset.value = card;
+                cardElement.addEventListener('click', flipCard);
+                grid.appendChild(cardElement);
+            });
+        }
+
+        function flipCard() {
+            if (this.classList.contains('flipped') || flippedCards.length === 2) return;
+            this.classList.add('flipped');
+            this.textContent = this.dataset.value;
+            flippedCards.push(this);
+
+            if (flippedCards.length === 2) {
+                setTimeout(checkMatch, 1000);
+            }
+        }
+
+        function checkMatch() {
+            const [card1, card2] = flippedCards;
+            if (card1.dataset.value === card2.dataset.value) {
+                matchedPairs++;
+                card1.removeEventListener('click', flipCard);
+                card2.removeEventListener('click', flipCard);
+            } else {
+                card1.classList.remove('flipped');
+                card1.textContent = '';
+                card2.classList.remove('flipped');
+                card2.textContent = '';
+            }
+            flippedCards = [];
+            if (matchedPairs === cards.length / 2) {
+                alert('Parabéns! Você encontrou todos os pares!');
+            }
+        }
+
+        createBoard();
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button tabindex="0" onclick="enviarForm()">Enviar</button>
+    <script>
+     // Verifica navegação por teclado
+     document.addEventListener('keydown', function(e) {
+       if (e.key === 'Enter' && document.activeElement.tagName === 'BUTTON') {
+         e.preventDefault();
+         document.activeElement.click();
+       }
+     });
+    </script>
+<br>
+<br>
+
+<label for="email">Email</label>
+ <input id="email" aria-required="true" aria-describedby="email-desc">
+ <p id="email-desc">Insira um email válido no formato usuario@dominio.com</p>
+<br>
+
+<input id="cpf" type="text" aria-describedby="cpf-erro">
+<span id="cpf-erro" role="alert" style="display: none"></span>
+<script>
+ function validarCPF(valor) {
+   if (!cpfValido(valor)) {
+     document.getElementById('cpf').setAttribute('aria-invalid', 'true');
+     let erro = document.getElementById('cpf-erro');
+     erro.textContent = "CPF inválido. Verifique os números digitados.";
+     erro.style.display = "block";
+   }
+ }
+</script>
+
+
+
+</body>
+</html>

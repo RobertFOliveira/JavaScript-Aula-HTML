@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <form></form>
+</head>
+
+<body>
+
+    <h1 style="color: blue;">Cadastro de Usuário</h1>
+    <form action="Aula Formulario2.html" method="POST" enctype="multipart/form-data">
+
+        <fieldset>
+            <legend>Novo Usuário</legend>
+
+            <label style="color: blue;" for="nome">Nome</label>
+            <input type="text" name="Nome" id="nome" placeholder="escreva o seu nome">
+
+            <br>
+            <hr><br>
+
+            <label style="font-size: large;" for="cpf">CPF</label>
+            <INPut type="number" name="cpf" id="nome"></INPut>
+            <br>
+            <hr><br>
+
+            <label for="idade">Idade</label>
+            <input type="number" name="idade" id="nome">
+            <br>
+            <hr><br>
+        </fieldset>
+
+        <label for="descricao">Descrição do pedido:</label><br>
+        <textarea name="descricao" id="descricao" cols="30" rows="10">
+    </textarea>
+        <br>
+        <hr><br>
+
+        <label for="estado">Estado</label>
+        <select name="estado" id="estado">
+            <option value="SP">São Paulo</option>
+            <option value="MG">Minas Gerais</option>
+        </select>
+        <br>
+        <hr><br>
+
+        <label for="genero">Genero</label><br>
+        <label for="F">Feminino</label>
+        <input type="radio" name="genero" value="Feminino">
+        <label for="M">Masculino</label>
+        <input type="radio" name="genero" value="Masculino">
+        <br>
+        <hr><br>
+
+        <label for="interesses">Interesses: </label>
+        <label for="esporte">Esporte</label>
+        <input type="checkbox" name="interesses[]" value="esporte">
+        <label for="musica">Musica</label>
+        <input type="checkbox" name="interesses[]" value="musica">
+        <br>
+        <hr><br>
+
+        <label for="esporte">Selecione os esportes: </label><br>
+        <label for="futebol">Futebol</label>
+        <input type="checkbox" name="interesses[]" value="futebol" id="esporte"><br>
+        <label for="volei">Volei</label>
+        <input type="checkbox" name="interesses[]" value="volei" id="esporte"><br>
+        <label for="natacao">Natação</label>
+        <input type="checkbox" name="interesses[]" value="natacao" id="esporte">
+        <br>
+        <hr><br>
+
+        <label for="nasc">Data de nascimento</label><br>
+        <input type="date" name="nasc" id="nasc"><br>
+        <br>
+        <hr><br>
+
+        <label for="horas">Horãrio</label><br>
+        <input type="time" name="horas" id="horas">
+        <br>
+        <hr><br>
+
+        <label for="doc">Enviar arquivo</label><br>
+        <input type="file" name="doc" id="doc" accept=".pdf,.txt">
+        <br><br>
+
+        <button type="reset">Limpar Formulário</button><br><br>
+
+        <button type="submit">Enviar</button>
+        <br>
+
+
+    </form>
+
+</body>
+
+</html>
